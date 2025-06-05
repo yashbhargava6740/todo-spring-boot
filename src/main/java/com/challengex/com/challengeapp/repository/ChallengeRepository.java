@@ -12,7 +12,7 @@ public class ChallengeRepository implements ChallengeInterface {
     private final List<Challenge> challengeList = new ArrayList<>();
 
     public ChallengeRepository() {
-        this.challengeList.add(new Challenge(1L, "Development", "This month i will master springboot", "June"));
+        this.challengeList.add(new Challenge(1L, "Development", "This is test challenge", "June"));
     }
 
     @Override
