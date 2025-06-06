@@ -1,16 +1,16 @@
 package com.challengex.com.challengeapp.controllers;
 
-import com.challengex.com.challengeapp.interfaces.ChallengeInterface;
 import com.challengex.com.challengeapp.models.Challenge;
+import com.challengex.com.challengeapp.service.ChallengeService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 public class ChallengeController {
-    private final ChallengeInterface challengeService;
+    private final ChallengeService challengeService;
 
-    public ChallengeController(ChallengeInterface challengeService) {
+    public ChallengeController(ChallengeService challengeService) {
         this.challengeService = challengeService;
     }
 
