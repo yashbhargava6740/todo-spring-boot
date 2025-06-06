@@ -10,9 +10,9 @@ import java.util.List;
 @Repository
 public class ChallengeRepository implements ChallengeInterface {
     private final List<Challenge> challengeList = new ArrayList<>();
+    private static Long id = 0L;
 
     public ChallengeRepository() {
-        this.challengeList.add(new Challenge(1L, "Development", "This is test challenge", "June"));
     }
 
     @Override
@@ -39,6 +39,7 @@ public class ChallengeRepository implements ChallengeInterface {
 
     @Override
     public void addChallenge(Challenge challenge) {
+        challenge.setId(++id);
         this.challengeList.add(challenge);
     }
 
