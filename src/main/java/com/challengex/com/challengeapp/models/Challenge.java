@@ -1,5 +1,6 @@
 package com.challengex.com.challengeapp.models;
 
+
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
@@ -9,8 +10,10 @@ public class Challenge {
     private String description;
     private String month;
 
-    public Challenge(Long id, String name, String description, String month) {
-        this.id = id;
+    private static Long primaryId = 0L;
+
+    public Challenge(String name, String description, String month) {
+        this.id = ++primaryId;
         this.name = name;
         this.description = description;
         this.month = month;

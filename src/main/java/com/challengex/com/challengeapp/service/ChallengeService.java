@@ -1,6 +1,5 @@
 package com.challengex.com.challengeapp.service;
 
-import com.challengex.com.challengeapp.interfaces.ChallengeInterface;
 import com.challengex.com.challengeapp.models.Challenge;
 import com.challengex.com.challengeapp.repository.ChallengeRepository;
 import org.springframework.stereotype.Service;
@@ -19,19 +18,19 @@ public class ChallengeService {
         return this.challengeRepository.getAllChallenges();
     }
 
-    public List<Challenge> getChallengesByMonth(String month) {
-        return this.challengeRepository.getChallengesByMonth(month);
+    public Challenge getChallenge(Long id) {
+        return this.challengeRepository.getChallenge(id);
     }
 
-    public void removeChallengeByMonth(String month) {
-        this.challengeRepository.removeChallengeByMonth(month);
+    public Boolean removeChallenge(Long id) {
+        return this.challengeRepository.removeChallenge(id);
     }
 
-    public void addChallenge(Challenge challenge) {
-        this.challengeRepository.addChallenge(challenge);
+    public Boolean addChallenge(Challenge challenge) {
+        return this.challengeRepository.addChallenge(challenge);
     }
 
-    public void updateChallenge(Long id, Challenge challenge) {
-        this.challengeRepository.updateChallenge(id, challenge);
+    public Boolean updateChallenge(Long id, Challenge challenge) {
+        return this.challengeRepository.updateChallenge(id, challenge);
     }
 }

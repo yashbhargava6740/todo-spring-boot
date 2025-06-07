@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface ChallengeInterface {
     List<Challenge> getAllChallenges();
-    List<Challenge> getChallengesByMonth(String month);
-    void updateChallenge(Long id, Challenge challenge);
-    void removeChallengeByMonth(String month);
-    void addChallenge(Challenge challenge);
+    Challenge getChallenge(Long id);
+    Boolean updateChallenge(Long id, Challenge challenge);
+    Boolean removeChallenge(Long id);
+    Boolean addChallenge(Challenge challenge);
 
 }

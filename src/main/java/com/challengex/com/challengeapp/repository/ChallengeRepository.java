@@ -10,42 +10,49 @@ import java.util.List;
 @Repository
 public class ChallengeRepository implements ChallengeInterface {
     private final List<Challenge> challengeList = new ArrayList<>();
-    private static Long id = 0L;
+//    private static Long id = 0L;
 
-    public ChallengeRepository() {
-    }
 
     @Override
     public List<Challenge> getAllChallenges() {
+        if (challengeList.isEmpty()) {
+            return null;
+        }
         return new ArrayList<>(this.challengeList);
     }
 
     @Override
-    public List<Challenge> getChallengesByMonth(String month) {
-        List<Challenge> monthlyFilteredChallenges = new ArrayList<>();
+    public Challenge getChallenge(Long id) {
         for (Challenge challenge : this.challengeList) {
-            if (challenge.getMonth().equals(month)) {
-                monthlyFilteredChallenges.add(challenge);
+            if (challenge.getId().equals(id)) {
+                return challenge;
             }
         }
 
-        return monthlyFilteredChallenges;
+        return null;
     }
 
     @Override
-    public void removeChallengeByMonth(String month) {
-        this.challengeList.removeIf(challenge -> challenge.getMonth().equals(month));
+    public Boolean removeChallenge(Long id) {
+        return this.challengeList.removeIf(challenge -> challenge.getId().equals(id));
     }
 
     @Override
-    public void addChallenge(Challenge challenge) {
-        challenge.setId(++id);
-        this.challengeList.add(challenge);
+    public Boolean addChallenge(Challenge challenge) {
+        return this.challengeList.add(challenge);
     }
 
     @Override
-    public void updateChallenge(Long id, Challenge challengeToUpdate) {
-        this.challengeList.removeIf(challenge -> challenge.getId().equals(id));
-        this.challengeList.add(challengeToUpdate);
+    public Boolean updateChallenge(Long id, Challenge challengeToUpdate) {
+        for(Challenge challenge : this.challengeList) {
+            if (challenge.getId().equals(id)) {
+                challenge.setDescription(challengeToUpdate.getDescription());
+                challenge.setName(challengeToUpdate.getName());
+                challenge.setMonth(challengeToUpdate.getMonth());
+                return true;
+            }
+        }
+
+        return false;
     }
 }
