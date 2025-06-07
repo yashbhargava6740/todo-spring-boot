@@ -10,8 +10,6 @@ import java.util.List;
 @Repository
 public class ChallengeRepository implements ChallengeInterface {
     private final List<Challenge> challengeList = new ArrayList<>();
-//    private static Long id = 0L;
-
 
     @Override
     public List<Challenge> getAllChallenges() {

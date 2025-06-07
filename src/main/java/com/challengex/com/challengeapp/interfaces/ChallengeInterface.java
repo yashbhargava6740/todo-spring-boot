@@ -10,5 +10,4 @@ public interface ChallengeInterface {
     Boolean updateChallenge(Long id, Challenge challenge);
     Boolean removeChallenge(Long id);
     Boolean addChallenge(Challenge challenge);
-
 }

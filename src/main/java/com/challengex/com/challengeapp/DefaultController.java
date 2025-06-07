@@ -2,13 +2,15 @@ package com.challengex.com.challengeapp;
 
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@RequestMapping("/")
 @RestController
 public class DefaultController {
 
-    @GetMapping("/")
+    @GetMapping
     public String sayHi() {
-        return "Hi, Your Application Has Started";
+        return "Hi, Your Challenge Application Has Started";
     }
 }
